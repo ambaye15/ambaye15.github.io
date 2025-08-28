@@ -67,11 +67,11 @@ body {
   background-color: rgba(30, 79, 139, 0.08);
 }
 
-/* MAIN CONTENT */
+/* MAIN CONTENT margin:40, padding:20*/
 .page-content .wrapper {
   max-width: 760px;
-  margin: 40px auto;
-  padding: 0 20px;
+  margin: 32px auto; 
+  padding: 0 16px;
 }
 
 /* FOOTER */
@@ -469,4 +469,47 @@ body {
 
 .code-more li {
   font-size: 15px;
+}
+
+/* Some things to make it look nice on mobile devices */
+
+/* Fluid images & typography */
+img { max-width: 100%; height: auto; }
+
+/* Comfortable body text on phones */
+body { font-size: 16px; }            /* base */
+@media (min-width: 640px) { body { font-size: 17px; } }
+@media (min-width: 960px) { body { font-size: 18px; } }
+
+
+/* Mobile layout: stack title above nav and wrap links */
+@media (max-width: 720px) {
+  .header-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .site-nav ul {
+    gap: 12px;
+    flex-wrap: wrap;         /* allow wrapping to multiple lines */
+  }
+  .site-nav a {
+    padding: 8px 10px;       /* bigger tap targets */
+  }
+}
+
+@media (max-width: 720px) {
+  .blurb-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;      /* or center if you prefer */
+  }
+  .profile-with-image img {
+    max-width: 160px;      /* slightly smaller on small screens */
+  }
+}
+
+@media (max-width: 720px) {
+  .news-item h3 { font-size: 20px; }
+  .news-item p  { font-size: 15px; }
 }
