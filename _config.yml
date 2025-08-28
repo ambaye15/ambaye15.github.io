@@ -19,7 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: "Austin MBaye"
-baseurl: "/ambaye15.github.io"  # or "/your-repo-name" if using GitHub Pages for a project site
+baseurl: "https://ambaye15.github.io" # "/ambaye15.github.io"  # or "/your-repo-name" if using GitHub Pages for a project site
 permalink: pretty
 
 collections:
