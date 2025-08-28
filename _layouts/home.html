@@ -1,0 +1,60 @@
+---
+layout: default
+title: "Home"
+---
+
+<section class="profile-with-image">
+  <div class="blurb-container">
+    <img src="{{ site.baseurl }}/assets/images/profile.jpg" alt="Austin MBaye">
+    <div class="profile-text">
+
+      <p class="contact-icons">
+        <a href="https://github.com/ambaye15" target="_blank" title="GitHub" class="icon-box">
+          <img src="{{ site.baseurl }}/assets/images/github.svg" alt="GitHub">
+        </a>
+      
+        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar" class="icon-box">
+          <img src="{{ site.baseurl }}/assets/images/scholar.png" alt="Google Scholar">
+        </a>
+      
+        <span class="email-box">
+          <a href="mailto:mbaye.au@northeastern.edu">mbaye.au@northeastern.edu</a>
+        </span>
+      </p>
+
+      
+      <p>
+        I am a mathematician with interests in topological data analysis, time series ananlysis, machine learning, and computational biology. My work bridges theoretical research with practical applications. For more details about my research background, you can view my 
+        <a href="{{ site.baseurl }}/assets/images/Austin_MBaye_CV (2).pdf" target="_blank">CV</a>, or explore my 
+        <a href="https://github.com/ambaye15" target="_blank">GitHub</a>,
+        <a href="https://www.linkedin.com/in/austin-mbaye-0044a1263" target="_blank">LinkedIn</a>, and
+        <a href="link-to-google-scholar" target="_blank">Google Scholar</a> profiles.
+      </p>
+      <p>
+        I am currently a PhD student in the department of mathematics at Northeastern Univeristy and hold a B.A in mathematics from Vassar College with a minor in Education
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- News Section (optional) -->
+<section class="news-section">
+  <h2>Latest News</h2>
+  <ul class="news-list">
+    {% assign sorted_news = site.news | sort: 'date' | reverse %}
+    {% for item in sorted_news limit:5 %}
+      <li class="news-item">
+        <h3><a href="{{ item.link | default: item.url }}" target="_blank" rel="noopener">{{ item.title }}</a></h3>
+        <p>{{ item.excerpt | strip_html | truncate: 150 }}</p>
+        <small>{{ item.date | date: "%B %-d, %Y" }}</small>
+      </li>
+    {% endfor %}
+    <p><a href="{{ site.baseurl }}/news-archive/">See all News</a></p>
+
+  </ul>
+</section>
+
+
+
