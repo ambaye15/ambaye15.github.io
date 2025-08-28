@@ -1,0 +1,30 @@
+# Jekyll build output (GitHub Pages builds this automatically)
+_site/
+
+# Jekyll cache
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor swap/temp files
+*.swp
+*.swo
+*~
+
+# Python cache (since you have code in repo)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# Bundler / Ruby
+vendor/
+.bundle/
+Gemfile.lock
