@@ -18,27 +18,48 @@ permalink: /research/
     <p class="blurb-note">Selected projects below — click a title for the abstract and links.</p>
   </div>
 
-  <details class="research-entry">
-    <summary class="research-summary">
-      <h2 class="project-title">Automated Quantification of Stereotypical Motor Movements in Autism Using Persistent Homology</h2>
-      <p class="project-meta"><em>Scientific Reports</em>, 2026</p>
-      <p class="authors">Austin A. MBaye, Jose A. Perea, Christopher J. Tralie, Matthew S. Goodwin</p>
-    </summary>
+  {% assign papers = site.research | where: "featured", true | sort: "date" | reverse %}
+  {% assign years = papers | group_by: "year" | sort: "name" | reverse %}
+  {% assign opened = false %}
 
-    <div class="expandable-content">
-      <img src="{{ '/assets/images/AQSM.jpg' | relative_url }}"
-           alt="Persistence-based feature pipeline for quantifying stereotypical motor movements"
-           class="expand-thumbnail" loading="lazy">
+  {% for year in years %}
+    <div class="research-year">
+      <h2 class="research-year-label">{{ year.name }}</h2>
 
-      <div class="abstract">
-        <p><strong>Abstract.</strong></p>
-        <p>Stereotypical motor movements (SMM) are a core diagnostic feature of autism that remain difficult to quantify efficiently and validly across individuals and developmental stages. The current paper presents a novel pipeline that leverages Topological Data Analysis to quantify and characterize recurrent movement patterns. Specifically, we use persistent homology to construct low-dimensional, interpretable feature vectors that capture geometric properties associated with autistic SMM by extracting periodic structure from time series derived from pose estimation landmarks in video data and accelerometer signals from wearable sensors. We demonstrate that these features, combined with simple classifiers, enable accurate automated quantification of autistic SMM. Visualization of the learned feature space reveals that extracted features generalize across individuals and are not dominated by person-specific SMM. Our results highlight the potential of using mathematically principled features to support more scalable, interpretable, and person-agnostic characterization of autistic SMM in naturalistic settings.</p>
-      </div>
+      {% for paper in year.items %}
+        <details class="research-entry"{% if opened == false %} open{% assign opened = true %}{% endif %}>
+          <summary class="research-summary">
+            <h3 class="project-title">{{ paper.title }}</h3>
+            <p class="project-meta"><em>{{ paper.venue }}</em>, {{ paper.year }}</p>
+            <p class="authors">{{ paper.authors }}</p>
+          </summary>
 
-      <ul class="project-links">
-        <li><a href="https://doi.org/10.1038/s41598-026-60095-8" target="_blank" rel="noopener">Sci Rep</a></li>
-        <li><a href="https://github.com/ambaye15/AQSM_SW1PerS" target="_blank" rel="noopener">Code</a></li>
-      </ul>
+          <div class="expandable-content">
+            {% if paper.thumbnail %}
+              <img src="{{ paper.thumbnail | relative_url }}"
+                   alt="{{ paper.thumbnail_alt | default: paper.title }}"
+                   class="expand-thumbnail" loading="lazy">
+            {% endif %}
+
+            <div class="abstract">
+              <p><strong>Abstract.</strong></p>
+              {{ paper.content | markdownify }}
+            </div>
+
+            {% if paper.links %}
+              <ul class="project-links">
+                {% for link in paper.links %}
+                  <li><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </details>
+      {% endfor %}
     </div>
-  </details>
+  {% endfor %}
+
+  {% if papers.size == 0 %}
+    <p class="blurb-note">No projects listed yet.</p>
+  {% endif %}
 </section>
