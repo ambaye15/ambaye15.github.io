@@ -1,5 +1,5 @@
 ---
-title: "Novemeber 2025"
+title: "Conference Talk"
 date: 2025-11-26
 
 excerpt: "I am honored to speak about my Autism research at the 5th International Conference on Neuroscience and Psychiatry in Paris, France."
