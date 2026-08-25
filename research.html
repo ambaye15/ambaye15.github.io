@@ -3,48 +3,42 @@ layout: default
 title: "Research"
 permalink: /research/
 ---
-
 <section class="research-section">
   <h1 class="section-title">Research</h1>
 
   <div class="section-blurb">
     <p>
-      My work lies at the intersection of topology, geometry, and data science, with a focus on developing topological methods for analyzing time-evolving systems. I am especially interested in applications to biological, medical, and neuroscientific data, where complex dynamics arise across multiple spatial and temporal scales. My research combines persistent homology, geometric learning, and computational modeling to reveal structure, organization, and dynamics in real-world systems.
-      Below are selected research projects. Click on each title for expanded description and links.
+      My work lies at the intersection of topology, geometry, and data science, with a focus on
+      developing topological methods for analyzing time-evolving systems. I am especially interested
+      in applications to biological, medical, and neuroscientific data, where complex dynamics arise
+      across multiple spatial and temporal scales. My research combines persistent homology,
+      geometric learning, and computational modeling to reveal structure, organization, and dynamics
+      in real-world systems.
     </p>
+    <p class="blurb-note">Selected projects below — click a title for the abstract and links.</p>
   </div>
- <div class="research-entry-wrapper">
 
-    <div class="research-text">
-      <details class="research-entry">
-        <summary class="research-summary">
-          <div class="project-title"><strong>Automated Quantification of Stereotypical Motor Movements in Autism Using Persistent Homology</strong></div>
-          <div class="project-meta">Scientific Reports <em></em>, 2026</div>
-          <div class="authors">Austin A. MBaye, Jose A. Perea, Christopher J. Tralie, Matthew S. Goodwin</div>
-        </summary>
-      
-        <div class="expandable-content">
-          <img src="{{ site.baseurl }}/assets/images/AQSM.jpg" alt="ATSM project thumbnail" class="expand-thumbnail">
-      
-          <p>
-            <strong>Abstract:</strong>
-          </p>
-          <p>
-            <em>
-              Stereotypical motor movements (SMM) are a core diagnostic feature of autism that remain difficult to quantify efficiently and validly across individuals and developmental stages. The current paper presents a novel pipeline that leverages Topological Data Analysis to quantify and characterize recurrent movement patterns. Specifically, we use persistent homology to construct low-dimensional, interpretable feature vectors that capture geometric properties associated with autistic SMM by extracting periodic structure from time series derived from pose estimation landmarks in video data and accelerometer signals from wearable sensors. We demonstrate that these features, combined with simple classifiers, enable accurate automated quantification of autistic SMM. Visualization of the learned feature space reveals that extracted features generalize across individuals and are not dominated by person-specific SMM. Our results highlight the potential of using mathematically principled features to support more scalable, interpretable, and person-agnostic characterization of autistic SMM in naturalistic settings.   
-               </em>
-        </p>
-          <ul class="project-links">
-            <li><a href="https://doi.org/10.1038/s41598-026-60095-8" target="_blank">Sci Rep</a></li>
+  <details class="research-entry">
+    <summary class="research-summary">
+      <h2 class="project-title">Automated Quantification of Stereotypical Motor Movements in Autism Using Persistent Homology</h2>
+      <p class="project-meta"><em>Scientific Reports</em>, 2026</p>
+      <p class="authors">Austin A. MBaye, Jose A. Perea, Christopher J. Tralie, Matthew S. Goodwin</p>
+    </summary>
 
-            <li><a href="https://github.com/ambaye15/AQSM_SW1PerS">Code</a></li>
-          </ul>
-        </div>
-      </details>
-      
-      
+    <div class="expandable-content">
+      <img src="{{ '/assets/images/AQSM.jpg' | relative_url }}"
+           alt="Persistence-based feature pipeline for quantifying stereotypical motor movements"
+           class="expand-thumbnail" loading="lazy">
+
+      <div class="abstract">
+        <p><strong>Abstract.</strong></p>
+        <p>Stereotypical motor movements (SMM) are a core diagnostic feature of autism that remain difficult to quantify efficiently and validly across individuals and developmental stages. The current paper presents a novel pipeline that leverages Topological Data Analysis to quantify and characterize recurrent movement patterns. Specifically, we use persistent homology to construct low-dimensional, interpretable feature vectors that capture geometric properties associated with autistic SMM by extracting periodic structure from time series derived from pose estimation landmarks in video data and accelerometer signals from wearable sensors. We demonstrate that these features, combined with simple classifiers, enable accurate automated quantification of autistic SMM. Visualization of the learned feature space reveals that extracted features generalize across individuals and are not dominated by person-specific SMM. Our results highlight the potential of using mathematically principled features to support more scalable, interpretable, and person-agnostic characterization of autistic SMM in naturalistic settings.</p>
+      </div>
+
+      <ul class="project-links">
+        <li><a href="https://doi.org/10.1038/s41598-026-60095-8" target="_blank" rel="noopener">Sci Rep</a></li>
+        <li><a href="https://github.com/ambaye15/AQSM_SW1PerS" target="_blank" rel="noopener">Code</a></li>
+      </ul>
     </div>
-  </div>
-
-
+  </details>
 </section>
