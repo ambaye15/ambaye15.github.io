@@ -1,5 +1,5 @@
 ---
-title: "September 2025"
+title: "Preprint Announcement"
 date: 2025-09-05
 excerpt: 'The preprint of our paper "Automated Quantification of Stereotypical Motor Movements Using Persistent Homology" is available on bioRxiv.'
 layout: post
