@@ -337,6 +337,7 @@ body {
   
   
 /* Research Page */
+  
 
   /* Research Box Preview + Expandable Format */
   .research-entry {
@@ -351,6 +352,7 @@ body {
   .research-entry:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   }
+
   
   .research-summary {
     padding: 15px 20px;
@@ -359,13 +361,38 @@ body {
     border-bottom: 1px solid #eee;
   }
   
-  .research-summary::-webkit-details-marker {
-    display: none;
+    .research-summary {
+    list-style: none;
+    position: relative;
+    padding-right: 46px;
+    border-bottom: none;
   }
+  .research-summary::marker,
+  .research-summary::-webkit-details-marker { display: none; content: ""; }
+
+  .research-summary::after {
+    content: "";
+    position: absolute;
+    right: 20px;
+    top: 24px;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #999;
+    border-bottom: 2px solid #999;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+  .research-entry[open] .research-summary::after {
+    transform: rotate(-135deg);
+    top: 27px;
+  }
+  .research-entry[open] .research-summary { border-bottom: 1px solid #eee; }
   
   .project-title {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 600;
+    margin: 0 0 4px;
+    line-height: 1.35;
   }
   
   .project-meta,
@@ -391,15 +418,40 @@ body {
   }
   
   .project-links {
-    padding-left: 20px;
-    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 14px 0 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
   }
-  
+
   .project-links li a {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid #d6dee8;
+    border-radius: 4px;
+    font-size: 13px;
     color: #1e4f8b;
-    text-decoration: underline;
-    font-size: 14px;
+    text-decoration: none;
   }
+  .project-links li a:hover { background: #f0f4fb; text-decoration: none; }
+
+  /* Shared page header + blurb */
+  .section-title { font-size: 28px; margin: 0 0 12px; }
+  .section-blurb p { font-size: 16px; line-height: 1.7; }
+  .blurb-note { color: #666; font-size: 15px; }
+
+  .project-meta,
+  .authors { margin: 0 0 2px; }
+
+  .abstract {
+    border-left: 3px solid #e2e8f0;
+    padding-left: 16px;
+    margin: 4px 0 0;
+  }
+  .abstract p { font-size: 14.5px; line-height: 1.65; color: #444; margin: 0; }
+  .abstract p:first-child { margin-bottom: 6px; }
   
   
 /* Code Page */
@@ -483,6 +535,39 @@ body {
   font-size: 15px;
 }
 
+.code-section { margin: 0 0 48px; }
+
+.code-entry { max-width: none; margin: 0 0 20px; }
+
+.code-header { gap: 12px; }
+.code-title { font-size: 20px; color: #111; }
+
+.code-expand summary {
+  list-style: none;
+  position: relative;
+  display: inline-block;
+  padding-right: 18px;
+  font-size: 14px;
+  color: #1e4f8b;
+}
+.code-expand summary::marker,
+.code-expand summary::-webkit-details-marker { display: none; content: ""; }
+.code-expand summary::after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid #1e4f8b;
+  border-bottom: 2px solid #1e4f8b;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.code-expand[open] summary::after { transform: rotate(-135deg); top: 10px; }
+
+.code-more p { margin: 12px 0 6px; }
+
 /* Some things to make it look nice on mobile devices */
 
 /* Fluid images & typography */
@@ -522,6 +607,6 @@ body { font-size: 16px; }            /* base */
 }
 
 @media (max-width: 720px) {
-  .news-item h3 { font-size: 20px; }
-  .news-item p  { font-size: 15px; }
+  .news-title { font-size: 16px; }
+  .news-excerpt { font-size: 14.5px; }
 }
