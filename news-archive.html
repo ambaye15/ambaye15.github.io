@@ -3,16 +3,39 @@ title: "News Archive"
 layout: default
 permalink: /news-archive/
 ---
+<section class="news-section">
+  <div class="news-header">
+    <h1>News Archive</h1>
+    <a class="news-all" href="{{ '/' | relative_url }}">&larr; Home</a>
+  </div>
 
-<h1>News Archive</h1>
-<ul>
   {% assign sorted_news = site.news | sort: 'date' | reverse %}
-  {% for item in sorted_news %}
-    <li>
-      <h3><a href="{{ item.link | default: item.url }}" target="_blank" rel="noopener">{{ item.title }}</a></h3>
-      <p>{{ item.excerpt | strip_html | truncate: 150 }}</p>
-      <small>{{ item.date | date: "%B %-d, %Y" }}</small>
-    </li>
-  {% endfor %}
-</ul>
+  {% assign years = sorted_news | group_by_exp: "item", "item.date | date: '%Y'" | sort: "name" | reverse %}
 
+  {% for year in years %}
+    <div class="news-year">
+      <h2 class="news-year-label">{{ year.name }}</h2>
+
+      {% assign months = year.items | group_by_exp: "item", "item.date | date: '%m'" | sort: "name" | reverse %}
+      {% for month in months %}
+        <div class="news-group">
+          <p class="news-month">{{ month.items.first.date | date: "%B" }}</p>
+          <ul class="news-items">
+            {% for item in month.items %}
+              <li class="news-item">
+                <h3 class="news-title">
+                  {% if item.link %}
+                    <a href="{{ item.link }}" target="_blank" rel="noopener">{{ item.title }}</a>
+                  {% else %}
+                    <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                  {% endif %}
+                </h3>
+                <p class="news-excerpt">{{ item.excerpt | strip_html | truncate: 150 }}</p>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</section>
