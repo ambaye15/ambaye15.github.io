@@ -1,5 +1,5 @@
 ---
-title: "July 2026"
+title: "Publication"
 date: 2026-07-24
 
 excerpt: "**Automated quantification of stereotypical motor movements in autism using persistent homology** is in *Scientific Reports*"
