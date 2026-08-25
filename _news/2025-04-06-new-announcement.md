@@ -1,5 +1,5 @@
 ---
-title: "April 2025"
+title: "Conference Talk"
 date: 2025-04-06
 
 excerpt: "I am exited to talk about my research a the AMS Eastern Section Meeting special session on Data Driven Methods in Biology."
