@@ -39,21 +39,35 @@ title: "Home"
 </section>
 
 
-<!-- News Section (optional) -->
 <section class="news-section">
-  <h2>Latest News</h2>
-  <ul class="news-list">
-    {% assign sorted_news = site.news | sort: 'date' | reverse %}
-    {% for item in sorted_news limit:5 %}
-      <li class="news-item">
-        <h3><a href="{{ item.link | default: item.url }}" target="_blank" rel="noopener">{{ item.title }}</a></h3>
-        <p>{{ item.excerpt | strip_html | truncate: 150 }}</p>
-        <small>{{ item.date | date: "%B %-d, %Y" }}</small>
-      </li>
-    {% endfor %}
-    <p><a href="{{ site.baseurl }}/news-archive/">See all News</a></p>
+  <div class="news-header">
+    <h2>Latest News</h2>
+    <a class="news-all" href="{{ '/news-archive/' | relative_url }}">See all &rarr;</a>
+  </div>
 
-  </ul>
+  {% assign sorted_news = site.news | sort: 'date' | reverse %}
+  {% assign recent = sorted_news | slice: 0, 5 %}
+  {% assign months = recent | group_by_exp: "item", "item.date | date: '%Y-%m'" | sort: "name" | reverse %}
+
+  {% for month in months %}
+    <div class="news-group">
+      <p class="news-month">{{ month.items.first.date | date: "%B %Y" }}</p>
+      <ul class="news-items">
+        {% for item in month.items %}
+          <li class="news-item">
+            <h3 class="news-title">
+              {% if item.link %}
+                <a href="{{ item.link }}" target="_blank" rel="noopener">{{ item.title }}</a>
+              {% else %}
+                <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+              {% endif %}
+            </h3>
+            <p class="news-excerpt">{{ item.excerpt | strip_html | truncate: 140 }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
 </section>
 
 
