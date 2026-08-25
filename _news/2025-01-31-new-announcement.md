@@ -1,5 +1,5 @@
 ---
-title: "January 2025"
+title: "Colloquium Talk"
 date: 2025-01-31
 
 excerpt: "I am honored to return to Vassar College to give a colloquium talk on TDA and some research I have been doing."
