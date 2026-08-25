@@ -20,14 +20,13 @@ permalink: /research/
 
   {% assign papers = site.research | where: "featured", true | sort: "date" | reverse %}
   {% assign years = papers | group_by: "year" | sort: "name" | reverse %}
-  {% assign opened = false %}
 
   {% for year in years %}
     <div class="research-year">
       <h2 class="research-year-label">{{ year.name }}</h2>
 
       {% for paper in year.items %}
-        <details class="research-entry"{% if opened == false %} open{% assign opened = true %}{% endif %}>
+        <details class="research-entry">
           <summary class="research-summary">
             <h3 class="project-title">{{ paper.title }}</h3>
             <p class="project-meta"><em>{{ paper.venue }}</em>, {{ paper.year }}</p>
