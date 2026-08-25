@@ -1,14 +1,18 @@
-
 title: "Austin MBaye"
 url: "https://ambaye15.github.io"
 baseurl: ""          
 permalink: pretty
-
 collections:
   news:
     output: true
     permalink: /news/:title/
-
+  research:
+    output: false
+defaults:
+  - scope:
+      path: ""
+      type: research
+    values:
+      featured: true
 plugins:
   - jekyll-feed
-
