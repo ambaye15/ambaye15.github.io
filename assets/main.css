@@ -452,6 +452,19 @@ body {
   }
   .abstract p { font-size: 14.5px; line-height: 1.65; color: #444; margin: 0; }
   .abstract p:first-child { margin-bottom: 6px; }
+
+
+  .research-year { margin-top: 36px; }
+  .research-year:first-of-type { margin-top: 24px; }
+
+  .research-year-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2568ba;
+    margin: 0 0 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #e2e8f0;
+  }
   
   
 /* Code Page */
