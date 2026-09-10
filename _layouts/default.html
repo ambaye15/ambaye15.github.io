@@ -2,44 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{{ page.title | escape }} | {{ site.title | escape }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/main.css">
+
+  <title>{% if page.url == "/" %}{{ site.title | escape }}{% else %}{{ page.title | escape }} | {{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description | escape }}">
+
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   {% if site.favicon %}
-    <link rel="icon" href="{{ site.baseurl }}{{ site.favicon }}">
+    <link rel="icon" href="{{ site.favicon | relative_url }}">
   {% endif %}
+  {% feed_meta %}
 </head>
 <body>
 
-  <!-- Site Header -->
   <header class="site-header">
     <div class="header-wrapper">
       <div class="header-left">
-        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
       </div>
       <nav class="site-nav">
         <ul>
-          <li><a href="{{ '/research/' | relative_url }}">Research</a></li>
-          <li><a href="{{ '/code/' | relative_url }}">Code</a></li>
-          <li><a href="{{ '/news-archive/' | relative_url }}">News</a></li>
+          <li><a href="{{ '/research/' | relative_url }}"{% if page.url contains '/research' %} class="active"{% endif %}>Research</a></li>
+          <li><a href="{{ '/code/' | relative_url }}"{% if page.url contains '/code' %} class="active"{% endif %}>Code</a></li>
+          <li><a href="{{ '/news-archive/' | relative_url }}"{% if page.url contains '/news' %} class="active"{% endif %}>News</a></li>
           <li><a href="{{ '/assets/images/Austin_MBaye.pdf' | relative_url }}">CV</a></li>
-         
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Page Content -->
   <main class="page-content">
     <div class="wrapper">
       {{ content }}
     </div>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="wrapper">
-      <p>&copy; {{ "now" | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+      <p>&copy; {{ "now" | date: "%Y" }} {{ site.title | escape }}</p>
     </div>
   </footer>
 
