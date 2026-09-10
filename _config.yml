@@ -8,11 +8,18 @@ collections:
     permalink: /news/:title/
   research:
     output: false
+  code:
+    output: false
 defaults:
   - scope:
       path: ""
       type: research
     values:
       featured: true
+  - scope:
+      path: ""
+      type: code
+    values:
+      order: 99
 plugins:
   - jekyll-feed
