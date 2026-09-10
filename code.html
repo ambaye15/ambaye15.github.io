@@ -10,37 +10,66 @@ permalink: /code/
     <p class="blurb-note">Open-source packages developed as part of my research.</p>
   </div>
 
-  <div class="code-entry">
-    <div class="code-header">
-      <h2 class="code-title">AQSM-SW1PerS</h2>
-      <a class="github-icon" href="https://github.com/ambaye15/AQSM_SW1PerS"
-         target="_blank" rel="noopener" aria-label="AQSM-SW1PerS on GitHub">
-        <img src="{{ '/assets/images/github.svg' | relative_url }}" alt="">
-      </a>
-    </div>
+  {% assign pkgs = site.code | sort: "order" %}
 
-    <p class="code-tagline">Persistent Homology · Pose Estimation · Signal Processing</p>
-
-    <p class="code-description">
-      Automated Quantification of Stereotypical Motor Movements via Sliding Windows and
-      1-Persistence Scoring (AQSM-SW1PerS) is a Python package for analyzing repetitive motion
-      patterns using pose estimation and topological data analysis. It was developed to support the
-      classification and analysis of stereotypical motor movements observed in individuals with
-      autism spectrum disorder, but can be applied to any dataset where one aims to quantify and
-      interpret recurrent patterns in time series or motion in video.
-    </p>
-
-    <details class="code-expand">
-      <summary>Modules</summary>
-      <div class="code-more">
-        <ul>
-          <li>Motion tracking via pose estimation with MediaPipe and YOLOv5</li>
-          <li>Period estimation of ≥ 1-variable time series</li>
-          <li>Sliding window embeddings</li>
-          <li>Persistence diagram computation</li>
-          <li>Classification tasks and hyperparameter optimization</li>
-        </ul>
+  {% for pkg in pkgs %}
+    <div class="code-entry">
+      <div class="code-header">
+        <h2 class="code-title">
+          {% if pkg.repo %}
+            <a href="{{ pkg.repo }}" target="_blank" rel="noopener">{{ pkg.name }}</a>
+          {% else %}
+            {{ pkg.name }}
+          {% endif %}
+        </h2>
+        {% if pkg.repo %}
+          <a class="github-icon" href="{{ pkg.repo }}" target="_blank" rel="noopener"
+             aria-label="{{ pkg.name }} on GitHub">
+            <img src="{{ '/assets/images/github.svg' | relative_url }}" alt="">
+          </a>
+        {% endif %}
       </div>
-    </details>
-  </div>
+
+      {% if pkg.tags %}
+        <ul class="code-tags">
+          {% for tag in pkg.tags %}
+            <li>{{ tag }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      <div class="code-description">
+        {{ pkg.content | markdownify }}
+      </div>
+
+      {% if pkg.install %}
+        <p class="code-install">{{ pkg.install }}</p>
+      {% endif %}
+
+      {% if pkg.modules %}
+        <details class="code-expand">
+          <summary>Modules</summary>
+          <div class="code-more">
+            <ul>
+              {% for module in pkg.modules %}
+                <li>{{ module }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </details>
+      {% endif %}
+
+      {% if pkg.links %}
+        <ul class="code-links">
+          {% for link in pkg.links %}
+            <li><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  {% if pkgs.size == 0 %}
+    <p class="blurb-note">No packages listed yet.</p>
+  {% endif %}
 </section>
