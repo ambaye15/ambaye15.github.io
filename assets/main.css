@@ -543,7 +543,9 @@ body {
   padding: 3px 10px;
 }
 
-.code-description { font-size: 15.5px; line-height: 1.65; margin: 0; }
+.code-description { margin: 0; }
+.code-description p { font-size: 15.5px; line-height: 1.65; margin: 0 0 10px; }
+.code-description p:last-child { margin-bottom: 0; }
 
 /* Install snippet */
 .code-install {
