@@ -102,6 +102,7 @@ img { max-width: 100%; height: auto; }
   font-size: var(--fs-3xl);
   font-weight: 700;
   color: var(--ink);
+  transition: color 0.2s ease;
 }
 .site-title:hover { color: var(--accent); text-decoration: none; }
 
