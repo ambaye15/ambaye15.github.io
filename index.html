@@ -5,36 +5,39 @@ title: "Home"
 
 <section class="profile-with-image">
   <div class="blurb-container">
-    <img src="{{ site.baseurl }}/assets/images/profile.jpg" alt="Austin MBaye">
+    <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Austin MBaye">
     <div class="profile-text">
 
       <p class="contact-icons">
-        <a href="https://github.com/ambaye15" target="_blank" title="GitHub" class="icon-box">
-          <img src="{{ site.baseurl }}/assets/images/github.svg" alt="GitHub">
+        <a href="https://github.com/ambaye15" target="_blank" rel="noopener" title="GitHub" class="icon-box">
+          <img src="{{ '/assets/images/github.svg' | relative_url }}" alt="GitHub">
         </a>
-      
-        <a href="https://scholar.google.com/citations?hl=en&user=Gx2FUBwAAAAJ" target="_blank" title="Google Scholar" class="icon-box">
-          <img src="{{ site.baseurl }}/assets/images/scholar.png" alt="Google Scholar">
+
+        <a href="https://scholar.google.com/citations?hl=en&amp;user=Gx2FUBwAAAAJ" target="_blank" rel="noopener" title="Google Scholar" class="icon-box">
+          <img src="{{ '/assets/images/scholar.png' | relative_url }}" alt="Google Scholar">
         </a>
-      
+
         <span class="email-box">
           <a href="mailto:mbaye.au@northeastern.edu">mbaye.au@northeastern.edu</a>
         </span>
       </p>
 
-      
       <p>
-        I am a mathematician with interests in topological data analysis, time series ananlysis, machine learning, and computational biology. My work bridges theoretical research with practical applications. For more details about my research background, you can view my 
-        <a href="{{ '/assets/images/Austin_MBaye.pdf' | relative_url }}">CV</a>, or explore my 
-        <a href="https://github.com/ambaye15" target="_blank">GitHub</a>,
-        <a href="https://www.linkedin.com/in/austin-mbaye-0044a1263" target="_blank">LinkedIn</a>, and
-        <a href="https://scholar.google.com/citations?hl=en&user=Gx2FUBwAAAAJ" target="_blank">Google Scholar</a> profiles.
+        I am a PhD student in the Department of Mathematics at Northeastern University, advised by
+        <a href="https://www.joperea.com/" target="_blank" rel="noopener">Jose Perea</a>. I hold a
+        B.A. in Mathematics from Vassar College with a minor in Education.
       </p>
+
       <p>
-        I am currently a PhD student in the department of mathematics at Northeastern Univeristy and hold a B.A in mathematics from Vassar College with a minor in Education
+        I develop mathematical and computational methods for extracting structure from complex data. 
+        My work draws on applied topology, geometry, machine learning, and signal processing, with applications in computational biology, medical imaging, and the analysis of dynamical systems. 
+        For more, see my
+        <a href="{{ '/assets/images/Austin_MBaye.pdf' | relative_url }}">CV</a>,
+        <a href="https://github.com/ambaye15" target="_blank" rel="noopener">GitHub</a>,
+        <a href="https://www.linkedin.com/in/austin-mbaye-0044a1263" target="_blank" rel="noopener">LinkedIn</a>, and
+        <a href="https://scholar.google.com/citations?hl=en&amp;user=Gx2FUBwAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
       </p>
     </div>
-
   </div>
 </section>
 
@@ -68,6 +71,8 @@ title: "Home"
       </ul>
     </div>
   {% endfor %}
+
+  {% if months.size == 0 %}
+    <p class="blurb-note">No news yet.</p>
+  {% endif %}
 </section>
-
-
