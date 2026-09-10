@@ -425,6 +425,14 @@ body {
     gap: 10px;
     flex-wrap: wrap;
   }
+  .code-links {
+    list-style: none;
+    padding: 0;
+    margin: 14px 0 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
 
   .project-links li a {
     display: inline-block;
@@ -435,8 +443,17 @@ body {
     color: #1e4f8b;
     text-decoration: none;
   }
+  .code-links li a {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid #d6dee8;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #1e4f8b;
+    text-decoration: none;
+  }
   .project-links li a:hover { background: #f0f4fb; text-decoration: none; }
-
+  .code-links li a:hover { background: #f0f4fb; text-decoration: none; }
   /* Shared page header + blurb */
   .section-title { font-size: 28px; margin: 0 0 12px; }
   .section-blurb p { font-size: 16px; line-height: 1.7; }
@@ -469,34 +486,36 @@ body {
   
 /* Code Page */
 
+.code-section { margin: 0 0 48px; }
 
-/* Intro section */
 .code-entry {
-  max-width: 700px;
-  width: 100%;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
+  margin: 0 0 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   transition: box-shadow 0.3s ease;
 }
-
-.code-entry:hover {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+.code-entry:hover { box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
 .code-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
 }
 
 .code-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
+  color: #111;
   margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: -0.01em;
 }
+.code-title a { color: #111; }
+.code-title a:hover { color: #1e4f8b; text-decoration: none; }
 
 .github-icon img {
   width: 24px;
@@ -504,63 +523,52 @@ body {
   opacity: 0.75;
   transition: opacity 0.2s;
 }
-.github-icon:hover img {
-  opacity: 1;
+.github-icon:hover img { opacity: 1; }
+
+/* Tag pills */
+.code-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  margin: 10px 0 12px;
+}
+.code-tags li {
+  font-size: 12px;
+  color: #55647a;
+  background: #f0f4fb;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 3px 10px;
 }
 
-.code-tagline {
-  font-size: 14px;
-  color: #666;
-  margin: 6px 0 10px;
-  font-style: italic;
-}
+.code-description { font-size: 15.5px; line-height: 1.65; margin: 0; }
 
-.code-description {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.code-expand summary {
-  cursor: pointer;
-  font-weight: 500;
-  margin-top: 12px;
-}
-
-.code-more {
-  margin-top: 10px;
-}
-
-.code-more pre {
-  background: #f5f5f5;
-  padding: 8px 12px;
-  border-radius: 4px;
+/* Install snippet */
+.code-install {
+  background: #f6f7f9;
+  border: 1px solid #e6e8eb;
+  border-radius: 5px;
+  padding: 9px 13px;
+  margin: 14px 0 0;
   overflow-x: auto;
-  font-family: monospace;
-  font-size: 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  color: #333;
 }
+.code-install::before { content: "$ "; color: #999; }
 
-.code-more ul {
-  margin-top: 8px;
-  padding-left: 20px;
-}
-
-.code-more li {
-  font-size: 15px;
-}
-
-.code-section { margin: 0 0 48px; }
-
-.code-entry { max-width: none; margin: 0 0 20px; }
-
-.code-header { gap: 12px; }
-.code-title { font-size: 20px; color: #111; }
-
+/* Expandable module list */
+.code-expand { margin-top: 12px; }
 .code-expand summary {
   list-style: none;
   position: relative;
   display: inline-block;
+  cursor: pointer;
   padding-right: 18px;
   font-size: 14px;
+  font-weight: 500;
   color: #1e4f8b;
 }
 .code-expand summary::marker,
@@ -569,7 +577,7 @@ body {
   content: "";
   position: absolute;
   right: 2px;
-  top: 8px;
+  top: 7px;
   width: 6px;
   height: 6px;
   border-right: 2px solid #1e4f8b;
@@ -577,9 +585,13 @@ body {
   transform: rotate(45deg);
   transition: transform 0.2s ease;
 }
-.code-expand[open] summary::after { transform: rotate(-135deg); top: 10px; }
+.code-expand[open] summary::after { transform: rotate(-135deg); top: 9px; }
 
-.code-more p { margin: 12px 0 6px; }
+.code-more { margin-top: 10px; }
+.code-more ul { margin: 0; padding-left: 20px; }
+.code-more li { font-size: 14.5px; line-height: 1.7; color: #444; }
+
+
 
 /* Some things to make it look nice on mobile devices */
 
