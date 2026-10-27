@@ -2,6 +2,8 @@ title: "Austin MBaye"
 url: "https://ambaye15.github.io"
 description: "Austin MBaye — PhD student in mathematics at Northeastern University"
 baseurl: ""          
+timezone: America/New_York
+future: true
 permalink: pretty
 collections:
   news:
@@ -12,6 +14,11 @@ collections:
   code:
     output: false
 defaults:
+  - scope:
+      path: ""
+      type: news
+    values:
+      layout: news
   - scope:
       path: ""
       type: research
