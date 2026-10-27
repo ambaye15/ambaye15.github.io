@@ -1,0 +1,11 @@
+{% if include.entry.links %}
+  <ul class="news-links" aria-label="Related links">
+    {% for resource in include.entry.links %}
+      <li><a href="{{ resource.url | escape }}" target="_blank" rel="noopener">{{ resource.label | escape }} <span aria-hidden="true">&rarr;</span></a></li>
+    {% endfor %}
+  </ul>
+{% elsif include.entry.link %}
+  <ul class="news-links" aria-label="Related links">
+    <li><a href="{{ include.entry.link | escape }}" target="_blank" rel="noopener">{{ include.entry.link_label | default: 'Details' | escape }} <span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+{% endif %}

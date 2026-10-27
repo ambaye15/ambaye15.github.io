@@ -1,0 +1,17 @@
+<li class="news-item">
+  <div class="news-date">
+    {% if include.entry.date_label %}
+      <span>{{ include.entry.date_label | escape }}</span>
+    {% else %}
+      <time datetime="{{ include.entry.date | date: '%Y-%m-%d' }}">{{ include.entry.date | date: '%b %-d, %Y' }}</time>
+    {% endif %}
+  </div>
+  <div class="news-content">
+    <h3 class="news-title">{{ include.entry.title | escape }}</h3>
+    {% assign summary = include.entry.summary | default: include.entry.excerpt %}
+    {% if summary %}
+      <p class="news-excerpt">{{ summary | markdownify | strip_html | normalize_whitespace | escape }}</p>
+    {% endif %}
+    {% include news-links.html entry=include.entry %}
+  </div>
+</li>
