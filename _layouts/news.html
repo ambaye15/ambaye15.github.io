@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<article class="news-detail">
+  <p><a href="{{ '/news-archive/' | relative_url }}">&larr; All news &amp; events</a></p>
+  <p class="news-date">{% if page.date_label %}{{ page.date_label | escape }}{% else %}{{ page.date | date: '%b %-d, %Y' }}{% endif %}</p>
+  <h1 class="section-title">{{ page.title | escape }}</h1>
+  {% if page.summary %}<div class="news-detail-summary">{{ page.summary | markdownify }}</div>{% endif %}
+  {{ content }}
+  {% include news-links.html entry=page %}
+</article>

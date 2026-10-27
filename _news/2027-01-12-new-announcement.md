@@ -1,12 +1,14 @@
 ---
-title: "Conference Talk"
-date: 2027-01-12
-
-excerpt: "I am giving a talk in the AMS Contributed Paper Session on Topology and Geometry at JMM 2027."
-layout: post  # or create a custom 'news' layout if you want; otherwise, 'post' works fine
-link: "https://meetings.ams.org/math/jmm2027/meetingapp.cgi/Paper/62932"
-
+title: Two talks at JMM 2027
+date: '2027-01-12'
+end_date: '2027-01-15'
+date_label: Jan 12 & 15, 2027
+event: true
+summary: Topology and Geometry (Jan 12); Mathematical Neuroscience (Jan 15).
+permalink: /news/jmm-2027/
+links:
+- label: Jan 12 program
+  url: https://meetings.ams.org/math/jmm2027/meetingapp.cgi/Paper/62932
+- label: Jan 15 program
+  url: https://meetings.ams.org/math/jmm2027/meetingapp.cgi/Paper/62931
 ---
-Detailed content about the announcement goes here.
-
-

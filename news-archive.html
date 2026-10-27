@@ -1,41 +1,53 @@
 ---
-title: "News Archive"
+title: "News & events"
 layout: default
 permalink: /news-archive/
 ---
-<section class="news-section">
+
+{% assign all_news = site.news | sort: 'date' %}
+{% assign upcoming_news = '' | split: ',' %}
+{% assign recent_news = '' | split: ',' %}
+{% assign today = site.time | date: '%Y%m%d' | plus: 0 %}
+{% for item in all_news %}
+  {% unless item.published == false %}
+    {% assign item_day = item.date | date: '%Y%m%d' | plus: 0 %}
+    {% assign end_day = item.end_date | default: item.date | date: '%Y%m%d' | plus: 0 %}
+    {% if item.event and end_day >= today %}
+      {% assign upcoming_news = upcoming_news | push: item %}
+    {% elsif item_day <= today %}
+      {% assign recent_news = recent_news | push: item %}
+    {% endif %}
+  {% endunless %}
+{% endfor %}
+{% assign recent_news = recent_news | reverse %}
+
+<section class="news-section news-archive" aria-labelledby="news-heading">
   <div class="news-header">
-    <h1>News Archive</h1>
+    <h1 id="news-heading">News &amp; events</h1>
     <a class="news-all" href="{{ '/' | relative_url }}">&larr; Home</a>
   </div>
-
-  {% assign sorted_news = site.news | sort: 'date' | reverse %}
-  {% assign years = sorted_news | group_by_exp: "item", "item.date | date: '%Y'" | sort: "name" | reverse %}
-
+  {% if upcoming_news.size > 0 %}
+    <div class="news-block">
+      <h2 class="news-group-label">Upcoming</h2>
+      <ul class="news-items">
+        {% for item in upcoming_news %}
+          {% include news-entry.html entry=item %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  {% assign years = recent_news | group_by_exp: 'item', "item.date | date: '%Y'" %}
   {% for year in years %}
-    <div class="news-year">
-      <h2 class="news-year-label">{{ year.name }}</h2>
-
-      {% assign months = year.items | group_by_exp: "item", "item.date | date: '%m'" | sort: "name" | reverse %}
-      {% for month in months %}
-        <div class="news-group">
-          <p class="news-month">{{ month.items.first.date | date: "%B" }}</p>
-          <ul class="news-items">
-            {% for item in month.items %}
-              <li class="news-item">
-                <h3 class="news-title">
-                  {% if item.link %}
-                    <a href="{{ item.link }}" target="_blank" rel="noopener">{{ item.title }}</a>
-                  {% else %}
-                    <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-                  {% endif %}
-                </h3>
-                <p class="news-excerpt">{{ item.excerpt | strip_html | truncate: 150 }}</p>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endfor %}
+    <div class="news-block">
+      <h2 class="news-group-label">{{ year.name }}</h2>
+      <ul class="news-items">
+        {% for item in year.items %}
+          {% include news-entry.html entry=item %}
+        {% endfor %}
+      </ul>
     </div>
   {% endfor %}
+  {% if upcoming_news.size == 0 and recent_news.size == 0 %}
+    <p class="blurb-note">No news yet.</p>
+  {% endif %}
 </section>

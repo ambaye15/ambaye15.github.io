@@ -3,76 +3,74 @@ layout: default
 title: "Home"
 ---
 
-<section class="profile-with-image">
+<section class="profile-with-image" aria-label="About Austin MBaye">
   <div class="blurb-container">
-    <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Austin MBaye">
+    <img class="profile-photo" src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Austin MBaye">
     <div class="profile-text">
-
-      <p class="contact-icons">
-        <a href="https://github.com/ambaye15" target="_blank" rel="noopener" title="GitHub" class="icon-box">
-          <img src="{{ '/assets/images/github.svg' | relative_url }}" alt="GitHub">
-        </a>
-
-        <a href="https://scholar.google.com/citations?hl=en&amp;user=Gx2FUBwAAAAJ" target="_blank" rel="noopener" title="Google Scholar" class="icon-box">
-          <img src="{{ '/assets/images/scholar.png' | relative_url }}" alt="Google Scholar">
-        </a>
-
-        <span class="email-box">
-          <a href="mailto:mbaye.au@northeastern.edu">mbaye.au@northeastern.edu</a>
-        </span>
-      </p>
-
+      <p class="profile-lead">I develop mathematical and computational methods for extracting structure from complex data.</p>
       <p>
-        I am a PhD student in the Department of Mathematics at Northeastern University, advised by
-        <a href="https://www.joperea.com/" target="_blank" rel="noopener">Jose Perea</a>. I hold a
-        B.A. in Mathematics from Vassar College with a minor in Education.
+        My work draws on applied topology, geometry, machine learning, and signal processing,
+        with applications in computational biology, medical imaging, and dynamical systems.
       </p>
-
       <p>
-        I develop mathematical and computational methods for extracting structure from complex data. 
-        My work draws on applied topology, geometry, machine learning, and signal processing, with applications in computational biology, medical imaging, and the analysis of dynamical systems. 
-        For more, see my
-        <a href="{{ '/assets/images/Austin_MBaye.pdf' | relative_url }}">CV</a>,
-        <a href="https://github.com/ambaye15" target="_blank" rel="noopener">GitHub</a>,
-        <a href="https://www.linkedin.com/in/austin-mbaye-0044a1263" target="_blank" rel="noopener">LinkedIn</a>, and
-        <a href="https://scholar.google.com/citations?hl=en&amp;user=Gx2FUBwAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
+        I am a PhD student in Mathematics at Northeastern University, advised by
+        <a href="https://www.joperea.com/" target="_blank" rel="noopener">Jose Perea</a>.
+        I hold a B.A. in Mathematics from Vassar College with a minor in Education.
       </p>
+      <ul class="profile-links" aria-label="Contact and professional profiles">
+        <li><a href="mailto:mbaye.au@northeastern.edu">Email</a></li>
+        <li><a href="{{ '/assets/images/Austin_MBaye.pdf' | relative_url }}">CV</a></li>
+        <li><a href="https://github.com/ambaye15" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://scholar.google.com/citations?hl=en&amp;user=Gx2FUBwAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+        <li><a href="https://www.linkedin.com/in/austin-mbaye-0044a1263" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
     </div>
   </div>
 </section>
 
+{% assign all_news = site.news | sort: 'date' %}
+{% assign upcoming_news = '' | split: ',' %}
+{% assign recent_news = '' | split: ',' %}
+{% assign today = site.time | date: '%Y%m%d' | plus: 0 %}
+{% for item in all_news %}
+  {% unless item.published == false %}
+    {% assign item_day = item.date | date: '%Y%m%d' | plus: 0 %}
+    {% assign end_day = item.end_date | default: item.date | date: '%Y%m%d' | plus: 0 %}
+    {% if item.event and end_day >= today %}
+      {% assign upcoming_news = upcoming_news | push: item %}
+    {% elsif item_day <= today %}
+      {% assign recent_news = recent_news | push: item %}
+    {% endif %}
+  {% endunless %}
+{% endfor %}
+{% assign recent_news = recent_news | reverse %}
 
-<section class="news-section">
+<section class="news-section" aria-labelledby="news-heading">
   <div class="news-header">
-    <h2>Latest News</h2>
-    <a class="news-all" href="{{ '/news-archive/' | relative_url }}">See all &rarr;</a>
+    <h2 id="news-heading">News &amp; events</h2>
+    <a class="news-all" href="{{ '/news-archive/' | relative_url }}">Full archive &rarr;</a>
   </div>
-
-  {% assign sorted_news = site.news | sort: 'date' | reverse %}
-  {% assign recent = sorted_news | slice: 0, 5 %}
-  {% assign months = recent | group_by_exp: "item", "item.date | date: '%Y-%m'" | sort: "name" | reverse %}
-
-  {% for month in months %}
-    <div class="news-group">
-      <p class="news-month">{{ month.items.first.date | date: "%B %Y" }}</p>
+  {% if upcoming_news.size > 0 %}
+    <div class="news-block">
+      <h3 class="news-group-label">Upcoming</h3>
       <ul class="news-items">
-        {% for item in month.items %}
-          <li class="news-item">
-            <h3 class="news-title">
-              {% if item.link %}
-                <a href="{{ item.link }}" target="_blank" rel="noopener">{{ item.title }}</a>
-              {% else %}
-                <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-              {% endif %}
-            </h3>
-            <p class="news-excerpt">{{ item.excerpt | strip_html | truncate: 140 }}</p>
-          </li>
+        {% for item in upcoming_news limit: 3 %}
+          {% include news-entry.html entry=item %}
         {% endfor %}
       </ul>
     </div>
-  {% endfor %}
-
-  {% if months.size == 0 %}
+  {% endif %}
+  {% if recent_news.size > 0 %}
+    <div class="news-block">
+      <h3 class="news-group-label">Recent</h3>
+      <ul class="news-items">
+        {% for item in recent_news limit: 3 %}
+          {% include news-entry.html entry=item %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  {% if upcoming_news.size == 0 and recent_news.size == 0 %}
     <p class="blurb-note">No news yet.</p>
   {% endif %}
 </section>

@@ -132,6 +132,7 @@ img { max-width: 100%; height: auto; }
   margin: var(--sp-8) auto;
   padding: 0 var(--sp-4);
 }
+.page-content-home .wrapper { max-width: 900px; }
 
 .site-footer {
   background: var(--surface-alt);
@@ -153,18 +154,24 @@ img { max-width: 100%; height: auto; }
 
 .blurb-container {
   display: flex;
-  align-items: center;
-  gap: var(--sp-5);
+  align-items: flex-start;
+  gap: 28px;
   width: 100%;
   margin: 0 auto;
 }
 
-.profile-with-image img {
-  max-width: 250px;
+.profile-photo {
+  width: 220px;
+  flex: 0 0 220px;
   border-radius: var(--radius);
 }
 
-.profile-text { flex: 1; line-height: 1.65; }
+.profile-text { flex: 1; min-width: 0; font-size: 17px; line-height: 1.65; }
+.profile-text p { margin: 0 0 var(--sp-4); }
+.profile-text .profile-lead { font-size: 20px; font-weight: 600; line-height: 1.5; color: var(--ink); }
+.profile-links { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 0; margin: var(--sp-5) 0 0; font-size: var(--fs-md); }
+.profile-links a { display: inline-block; padding: 3px 0; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
 .contact-icons {
   display: flex;
@@ -244,34 +251,20 @@ img { max-width: 100%; height: auto; }
 .news-header h2 { font-size: var(--fs-2xl); margin: 0; }
 .news-all { font-size: var(--fs-base); white-space: nowrap; }
 
-.news-group {
-  display: grid;
-  grid-template-columns: 115px 1fr;
-  gap: var(--sp-5);
-  padding: var(--sp-5) 0;
-  border-bottom: 1px solid var(--line-faint);
-}
-.news-group:last-child { border-bottom: none; }
-
-.news-month {
-  margin: 0;
-  padding-top: 3px;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-}
-
+.news-block { padding-top: var(--sp-5); }
+.news-block + .news-block { margin-top: var(--sp-3); border-top: 1px solid var(--line); }
+.news-group-label { margin: 0 0 var(--sp-1); color: var(--ink-muted); font-size: var(--fs-xs); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .news-items { list-style: none; margin: 0; padding: 0; }
-.news-item + .news-item {
-  margin-top: var(--sp-4);
-  padding-top: var(--sp-4);
-  border-top: 1px solid var(--line-faint);
-}
-
-.news-title { font-size: var(--fs-lg); font-weight: 600; margin: 0; line-height: 1.35; }
+.news-item { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: var(--sp-5); padding: var(--sp-4) 0; }
+.news-item + .news-item { border-top: 1px solid var(--line-faint); }
+.news-date { padding-top: 2px; color: var(--ink-muted); font-size: var(--fs-sm); line-height: 1.6; }
+.news-content { min-width: 0; }
+.news-title { color: var(--ink); font-size: var(--fs-lg); font-weight: 600; margin: 0; line-height: 1.4; }
 .news-excerpt { font-size: var(--fs-md); color: var(--ink-muted); margin: var(--sp-1) 0 0; }
+.news-links { list-style: none; display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-4); padding: 0; margin: 6px 0 0; font-size: var(--fs-sm); }
+.news-links a { display: inline-block; padding: 3px 0; }
+.news-archive { margin-top: 0; }
+.news-detail-summary { font-size: var(--fs-lg); }
 
 /* Year grouping — news archive and research */
 .news-year,
@@ -484,13 +477,16 @@ img { max-width: 100%; height: auto; }
   .site-nav a { padding: var(--sp-2) var(--sp-3); }
 
   .blurb-container { flex-direction: column; align-items: center; }
-  .profile-with-image img { max-width: 160px; }
+  .profile-photo { width: 170px; flex: 0 0 auto; }
 
-  .news-group { grid-template-columns: 1fr; gap: var(--sp-2); }
-  .news-month { padding-top: 0; }
-  .news-title { font-size: var(--fs-md); }
-  .news-excerpt { font-size: var(--fs-base); }
+  .news-item { grid-template-columns: 1fr; gap: var(--sp-1); }
+  .news-date { padding-top: 0; }
+  .news-title { font-size: var(--fs-lg); }
+  .news-excerpt { font-size: var(--fs-md); }
 
   .research-summary { padding-right: 40px; }
   .code-entry { padding: var(--sp-4); }
+}
+@media (pointer: coarse) {
+  .profile-links a, .news-links a, .news-all { min-height: 44px; display: inline-flex; align-items: center; }
 }
