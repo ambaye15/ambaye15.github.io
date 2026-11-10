@@ -78,7 +78,7 @@ title: "Home"
     <div class="news-block">
       <h3 class="news-group-label">Recent</h3>
       <ul class="news-items">
-        {% for item in recent_news limit: 3 %}
+        {% for item in recent_news limit: 2 %}
           {% include news-entry.html entry=item %}
         {% endfor %}
       </ul>
