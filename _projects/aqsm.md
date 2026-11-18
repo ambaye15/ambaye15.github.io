@@ -13,6 +13,10 @@ papers:
 resources:
   - name: "GitHub"
     url: "https://github.com/ambaye15/AQSM_SW1PerS"
+  - name: "Dataset"
+    url: "https://doi.org/10.6084/m9.figshare.30100669.v1"
 ---
 This project uses sliding window embeddings and persistent homology to
-characterize recurrent movement patterns in video and wearable sensor data.
+quantify recurring motion in video and wearable sensor data. It evaluates
+whether the resulting features help identify stereotypical motor movements
+across individuals.
