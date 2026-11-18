@@ -373,6 +373,21 @@ img { max-width: 100%; height: auto; }
   gap: var(--sp-3);
 }
 
+.code-identity {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  min-width: 0;
+}
+
+.code-logo {
+  display: block;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .code-title {
   font-size: var(--fs-xl);
   font-weight: 600;
