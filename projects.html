@@ -1,0 +1,57 @@
+---
+layout: default
+title: "Projects"
+permalink: /projects/
+---
+<section class="research-section">
+  <h1 class="section-title">Projects</h1>
+
+  {% assign projects = site.projects | sort: "order" %}
+  {% for project in projects %}
+    <details class="research-entry" id="{{ project.project_id | escape }}">
+      <summary class="research-summary">
+        <h2 class="project-title">{{ project.title | escape }}</h2>
+        <p class="project-meta">{{ project.summary | escape }}</p>
+      </summary>
+
+      <div class="expandable-content">
+        {% if project.image %}
+          <img class="expand-thumbnail"
+               src="{{ project.image | relative_url }}"
+               alt="{{ project.image_alt | escape }}"
+               loading="lazy">
+        {% endif %}
+
+        {{ project.content | markdownify }}
+
+        {% if project.papers %}
+          <h3>Papers</h3>
+          <ul>
+            {% for paper in project.papers %}
+              <li>
+                {% if paper.url %}
+                  <a href="{{ paper.url | escape }}">{{ paper.title | escape }}</a>
+                {% else %}
+                  <strong>{{ paper.title | escape }}</strong>
+                {% endif %}
+                {% if paper.authors %}<br>{{ paper.authors | escape }}{% endif %}
+                {% if paper.status %}<br><em>{{ paper.status | escape }}</em>{% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {% if project.resources %}
+          <h3>Software and resources</h3>
+          <ul class="project-links">
+            {% for resource in project.resources %}
+              <li>
+                <a href="{{ resource.url | escape }}">{{ resource.name | escape }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </details>
+  {% endfor %}
+</section>
