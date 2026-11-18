@@ -6,6 +6,21 @@ permalink: /projects/
 <section class="research-section">
   <h1 class="section-title">Projects</h1>
 
+  <div class="section-blurb">
+    <p>
+      I develop geometric and topological methods to study how patterns
+      form, repeat, and change in systems that evolve over time. My projects
+      apply these methods to questions ranging from how repetitive human
+      movement varies across individuals to how handedness emerges in
+      embryonic flows.
+    </p>
+    <p class="blurb-note">
+      Expand a project to explore its methods, papers, and software.
+      For a chronological list of papers with BibTeX citations, see
+      <a href="{{ '/publications/' | relative_url }}">Publications</a>.
+    </p>
+  </div>
+
   {% assign projects = site.projects | sort: "order" %}
 
   {% for project in projects %}
