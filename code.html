@@ -10,7 +10,7 @@ permalink: /code/
     <p class="blurb-note">Open-source packages developed as part of my research.</p>
   </div>
 
-  {% assign pkgs = site.code | sort: "order" %}
+  {% assign pkgs = site.code | sort: "date" | reverse %}
 
   {% for pkg in pkgs %}
     <div class="code-entry">
