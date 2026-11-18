@@ -15,16 +15,34 @@ permalink: /code/
   {% for pkg in pkgs %}
     <div class="code-entry">
       <div class="code-header">
-        <h2 class="code-title">
-          {% if pkg.repo %}
-            <a href="{{ pkg.repo }}" target="_blank" rel="noopener">{{ pkg.name }}</a>
-          {% else %}
-            {{ pkg.name }}
+        <div class="code-identity">
+          {% if pkg.logo %}
+            <img
+              src="{{ pkg.logo | relative_url }}"
+              alt="{{ pkg.logo_alt | default: pkg.name | escape }}"
+              class="code-logo"
+              width="72"
+              height="72"
+              loading="lazy">
           {% endif %}
-        </h2>
+      
+          <h2 class="code-title">
+            {% if pkg.repo %}
+              <a href="{{ pkg.repo }}" target="_blank" rel="noopener">
+                {{ pkg.name }}
+              </a>
+            {% else %}
+              {{ pkg.name }}
+            {% endif %}
+          </h2>
+        </div>
+      
         {% if pkg.repo %}
-          <a class="github-icon" href="{{ pkg.repo }}" target="_blank" rel="noopener"
-             aria-label="{{ pkg.name }} on GitHub">
+          <a class="github-icon"
+             href="{{ pkg.repo }}"
+             target="_blank"
+             rel="noopener"
+             aria-label="{{ pkg.name | escape }} on GitHub">
             <img src="{{ '/assets/images/github.svg' | relative_url }}" alt="">
           </a>
         {% endif %}
