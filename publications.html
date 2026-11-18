@@ -1,0 +1,57 @@
+---
+layout: default
+title: "Publications"
+permalink: /publications/
+---
+<section class="research-section">
+  <h1 class="section-title">Publications</h1>
+
+  <p class="blurb-note">
+    <a href="https://scholar.google.com/citations?user=Gx2FUBwAAAAJ&amp;hl=en">
+      Google Scholar
+    </a>
+  </p>
+
+  {% assign papers = site.research
+    | where_exp: "paper", "paper.hide_from_publications != true"
+    | sort: "date"
+    | reverse %}
+  {% assign years = papers | group_by: "year" | sort: "name" | reverse %}
+
+  {% for year in years %}
+    <section class="research-year">
+      <h2 class="research-year-label">{{ year.name | escape }}</h2>
+
+      <ul class="publication-list" role="list">
+        {% for paper in year.items %}
+          <li class="publication">
+            <strong>{{ paper.title | escape }}</strong>
+
+            {% if paper.authors %}
+              <p class="authors">{{ paper.authors | escape }}</p>
+            {% endif %}
+
+            <p class="project-meta">
+              {% if paper.venue %}<em>{{ paper.venue | escape }}</em>{% endif %}
+              {% for link in paper.links %}
+                {% assign link_url = link.url | strip %}
+                {% unless link_url == empty %}
+                  {% if paper.venue or forloop.index0 > 0 %} · {% endif %}
+                  <a href="{{ link_url | escape }}">{{ link.name | escape }}</a>
+                {% endunless %}
+              {% endfor %}
+            </p>
+
+            {% assign citation = paper.bibtex | strip %}
+            {% unless citation == empty %}
+              <details class="publication-cite">
+                <summary>Cite (BibTeX)</summary>
+                <pre tabindex="0"><code>{{ citation | escape }}</code></pre>
+              </details>
+            {% endunless %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
+</section>
