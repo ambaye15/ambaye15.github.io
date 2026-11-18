@@ -3,6 +3,7 @@ title: "AQSM–SW1PerS"
 project_id: aqsm
 order: 3
 summary: "Quantifying stereotypical motor movements using persistent homology."
+logo: "/assets/images/aqsm_logo.png"
 image: "/assets/images/AQSM.jpg"
 image_alt: "Pipeline for quantifying stereotypical motor movements with persistent homology"
 papers:
