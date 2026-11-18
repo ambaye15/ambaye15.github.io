@@ -13,6 +13,8 @@ collections:
     output: false
   code:
     output: false
+  projects:
+    output: false
 defaults:
   - scope:
       path: ""
