@@ -7,26 +7,46 @@ permalink: /projects/
   <h1 class="section-title">Projects</h1>
 
   {% assign projects = site.projects | sort: "order" %}
+
   {% for project in projects %}
     <details class="research-entry" id="{{ project.project_id | escape }}">
-      <summary class="research-summary">
-        <h2 class="project-title">{{ project.title | escape }}</h2>
-        <p class="project-meta">{{ project.summary | escape }}</p>
+      <summary class="research-summary{% if project.logo %} project-summary-with-logo{% endif %}">
+        {% if project.logo %}
+          <span class="project-card-logo">
+            <img src="{{ project.logo | relative_url }}" alt="" loading="lazy">
+          </span>
+        {% endif %}
+
+        <div class="project-summary-text">
+          <h2 class="project-title">{{ project.title | escape }}</h2>
+          {% if project.summary %}
+            <p class="project-meta">{{ project.summary | escape }}</p>
+          {% endif %}
+        </div>
       </summary>
 
       <div class="expandable-content">
         {% if project.image %}
           <img class="expand-thumbnail"
                src="{{ project.image | relative_url }}"
-               alt="{{ project.image_alt | escape }}"
+               alt="{{ project.image_alt | default: project.title | escape }}"
                loading="lazy">
         {% endif %}
 
-        {{ project.content | markdownify }}
+        {% assign abstract_text = project.content | strip %}
+        {% unless abstract_text == empty %}
+          <div class="abstract project-abstract"
+               tabindex="0"
+               role="region"
+               aria-label="{{ project.title | escape }} abstract">
+            <p><strong>Abstract.</strong></p>
+            {{ abstract_text | markdownify }}
+          </div>
+        {% endunless %}
 
-        {% if project.papers %}
+        {% if project.papers and project.papers.size > 0 %}
           <h3>Papers</h3>
-          <ul>
+          <ol class="project-papers">
             {% for paper in project.papers %}
               <li>
                 {% if paper.url %}
@@ -34,14 +54,20 @@ permalink: /projects/
                 {% else %}
                   <strong>{{ paper.title | escape }}</strong>
                 {% endif %}
-                {% if paper.authors %}<br>{{ paper.authors | escape }}{% endif %}
-                {% if paper.status %}<br><em>{{ paper.status | escape }}</em>{% endif %}
+
+                {% if paper.authors %}
+                  <br>{{ paper.authors | escape }}
+                {% endif %}
+
+                {% if paper.status %}
+                  <br><em>{{ paper.status | escape }}</em>
+                {% endif %}
               </li>
             {% endfor %}
-          </ul>
+          </ol>
         {% endif %}
 
-        {% if project.resources %}
+        {% if project.resources and project.resources.size > 0 %}
           <h3>Software and resources</h3>
           <ul class="project-links">
             {% for resource in project.resources %}
