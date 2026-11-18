@@ -1,7 +1,7 @@
 ---
 name: "CaMPers"
 date: 2026-11-18
-logo: /assets/images/campers_logo.png
+logo: /assets/images/campers_logo.svg
 logo_alt: "CaMPers logo"
 repo: ""
 install: "pip install "
