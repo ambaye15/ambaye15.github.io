@@ -23,8 +23,8 @@
       </div>
       <nav class="site-nav">
         <ul>
-          <li><a href="{{ '/research/' | relative_url }}"{% if page.url contains '/research' %} class="active"{% endif %}>Research</a></li>
-          <li><a href="{{ '/code/' | relative_url }}"{% if page.url contains '/code' %} class="active"{% endif %}>Code</a></li>
+          <li><a href="{{ '/projects/' | relative_url }}"{% if page.url == '/projects/' %}class="active" aria-current="page"{% endif %}>Projects</a></li>
+          <li><a href="https://scholar.google.com/citations?user=Gx2FUBwAAAAJ&amp;hl=en">Publications</a></li>
           <li><a href="{{ '/news-archive/' | relative_url }}"{% if page.url contains '/news' %} class="active"{% endif %}>News</a></li>
           <li><a href="{{ '/assets/images/Austin_MBaye.pdf' | relative_url }}">CV</a></li>
         </ul>
