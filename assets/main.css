@@ -487,6 +487,36 @@ img { max-width: 100%; height: auto; }
   margin-top: var(--sp-2);
 }
 
+/* Reserve space for the logo only while the card is collapsed. */
+.research-entry:not([open]) > .project-summary-with-logo {
+  --project-logo-width: clamp(64px, 14vw, 88px);
+  min-height: var(--project-logo-width);
+  padding-left: calc(var(--project-logo-width) + var(--sp-4));
+}
+
+/* The existing .research-summary rule sets position: relative. */
+.project-card-logo {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--project-logo-width);
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  border-right: 1px solid var(--line-faint);
+}
+
+.project-card-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.research-entry[open] > .research-summary .project-card-logo {
+  display: none;
+}
+
 /* ============================================================
    MOBILE
    ============================================================ */
