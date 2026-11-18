@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1254" height="1254" viewBox="0 0 1254 1254" role="img" aria-labelledby="title desc">
+<title id="title">CaMPers topological campfire</title>
+<desc id="desc">Nine filled transitive directed triangles and three unfilled directed cycles form a flame above crossed logs. Transparent background; genuine editable vector paths.</desc>
+<g id="triangular-faces">
+<polygon points="727,137 627,311 799,406" fill="#FF713F"/>
+<polygon points="627,311 799,406 694,589" fill="#FFD52D"/>
+<polygon points="799,406 694,589 899,673" fill="#FF713F"/>
+<polygon points="694,589 899,673 774,823" fill="#FFD52D"/>
+<polygon points="501,479 369,688 573,689" fill="#FFD52D"/>
+<polygon points="369,688 327,962 503,848" fill="#FF713F"/>
+<polygon points="327,962 503,848 638,1048" fill="#FF713F"/>
+<polygon points="503,848 638,1048 774,823" fill="#FFD52D"/>
+<polygon points="774,823 899,673 963,940" fill="#FF713F"/>
+</g>
+<g id="directed-edges" fill="#00DDE0" stroke="#00DDE0" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+<path id="edge-U-T" d="M627 311 L727 137" fill="none"/>
+<polygon points="686.47,207.53 686.13,244.24 654.92,226.30" stroke="none"/>
+<path id="edge-V-T" d="M799 406 L727 137" fill="none"/>
+<polygon points="758.09,253.15 783.75,279.40 748.97,288.71" stroke="none"/>
+<path id="edge-V-U" d="M799 406 L627 311" fill="none"/>
+<polygon points="696.37,349.31 733.08,349.03 715.68,380.54" stroke="none"/>
+<path id="edge-X-U" d="M694 589 L627 311" fill="none"/>
+<polygon points="656.05,431.53 681.04,458.42 646.05,466.86" stroke="none"/>
+<path id="edge-X-V" d="M694 589 L799 406" fill="none"/>
+<polygon points="755.96,481.02 755.64,517.73 724.42,499.82" stroke="none"/>
+<path id="edge-H-V" d="M899 673 L799 406" fill="none"/>
+<polygon points="842.34,521.71 870.42,545.36 836.70,557.99" stroke="none"/>
+<path id="edge-X-H" d="M694 589 L899 673" fill="none"/>
+<polygon points="814.08,638.20 777.65,642.73 791.30,609.41" stroke="none"/>
+<path id="edge-X-J" d="M694 589 L774 823" fill="none"/>
+<polygon points="740.15,723.98 712.76,699.52 746.83,687.88" stroke="none"/>
+<path id="edge-J-H" d="M774 823 L899 673" fill="none"/>
+<polygon points="848.66,733.40 842.01,769.51 814.35,746.46" stroke="none"/>
+<path id="edge-Y-W" d="M369 688 L501 479" fill="none"/>
+<polygon points="445.15,567.44 443.28,604.10 412.84,584.88" stroke="none"/>
+<path id="edge-Z-W" d="M573 689 L501 479" fill="none"/>
+<polygon points="530.84,566.03 558.24,590.46 524.19,602.14" stroke="none"/>
+<path id="edge-Z-Y" d="M573 689 L369 688" fill="none"/>
+<polygon points="452.00,688.41 484.09,670.56 483.91,706.56" stroke="none"/>
+<path id="edge-Y-I" d="M369 688 L503 848" fill="none"/>
+<polygon points="448.20,782.57 413.85,769.59 441.45,746.48" stroke="none"/>
+<path id="edge-K-I" d="M327 962 L503 848" fill="none"/>
+<polygon points="430.95,894.67 413.87,927.18 394.30,896.96" stroke="none"/>
+<path id="edge-K-Y" d="M327 962 L369 688" fill="none"/>
+<polygon points="350.88,806.22 363.82,840.58 328.24,835.12" stroke="none"/>
+<path id="edge-K-L" d="M327 962 L638 1048" fill="none"/>
+<polygon points="500.81,1010.06 465.17,1018.88 474.77,984.19" stroke="none"/>
+<path id="edge-L-I" d="M638 1048 L503 848" fill="none"/>
+<polygon points="559.87,932.25 592.69,948.70 562.85,968.85" stroke="none"/>
+<path id="edge-L-J" d="M638 1048 L774 823" fill="none"/>
+<polygon points="715.83,919.24 714.68,955.94 683.87,937.31" stroke="none"/>
+<path id="edge-J-I" d="M774 823 L503 848" fill="none"/>
+<polygon points="619.58,837.25 649.79,816.38 653.10,852.23" stroke="none"/>
+<path id="edge-I-Z" d="M503 848 L573 689" fill="none"/>
+<polygon points="545.66,751.11 549.24,787.65 516.29,773.15" stroke="none"/>
+<path id="edge-Z-X" d="M573 689 L694 589" fill="none"/>
+<polygon points="648.15,626.90 634.95,661.16 612.01,633.41" stroke="none"/>
+<path id="edge-J-M" d="M774 823 L963 940" fill="none"/>
+<polygon points="884.66,891.50 847.97,889.96 866.92,859.35" stroke="none"/>
+<path id="edge-M-H" d="M963 940 L899 673" fill="none"/>
+<polygon points="926.57,788.02 951.53,814.95 916.53,823.34" stroke="none"/>
+<path id="edge-M-L" d="M963 940 L638 1048" fill="none"/>
+<polygon points="782.47,999.99 807.16,972.82 818.51,1006.98" stroke="none"/>
+</g>
+<g id="vertices" fill="#00DDE0">
+<circle id="vertex-T" cx="727" cy="137" r="29"/>
+<circle id="vertex-U" cx="627" cy="311" r="29"/>
+<circle id="vertex-V" cx="799" cy="406" r="29"/>
+<circle id="vertex-W" cx="501" cy="479" r="29"/>
+<circle id="vertex-X" cx="694" cy="589" r="29"/>
+<circle id="vertex-Y" cx="369" cy="688" r="29"/>
+<circle id="vertex-Z" cx="573" cy="689" r="29"/>
+<circle id="vertex-H" cx="899" cy="673" r="29"/>
+<circle id="vertex-I" cx="503" cy="848" r="29"/>
+<circle id="vertex-J" cx="774" cy="823" r="29"/>
+<circle id="vertex-K" cx="327" cy="962" r="29"/>
+<circle id="vertex-L" cx="638" cy="1048" r="29"/>
+<circle id="vertex-M" cx="963" cy="940" r="29"/>
+</g>
+<g id="logs" fill="none" stroke="#00DDE0" stroke-width="46" stroke-linecap="round"><path d="M472 1078 L805 1167"/><path d="M462 1167 L795 1078"/></g>
+</svg>
