@@ -472,6 +472,21 @@ img { max-width: 100%; height: auto; }
 .code-more ul { margin: 0; padding-left: var(--sp-5); }
 .code-more li { font-size: var(--fs-base); line-height: 1.7; color: var(--ink-muted); }
 
+
+.project-abstract {
+  max-height: 14rem;
+  overflow-y: auto;
+  padding-right: var(--sp-3);
+}
+
+.project-papers {
+  padding-left: var(--sp-6);
+}
+
+.project-papers li + li {
+  margin-top: var(--sp-2);
+}
+
 /* ============================================================
    MOBILE
    ============================================================ */
