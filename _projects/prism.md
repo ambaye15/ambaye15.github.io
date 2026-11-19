@@ -9,6 +9,7 @@ image_alt: "PRISM pipeline for measuring intensity, extent, frequency, and rhyth
 papers:
   - title: "PRISM: Profiling and Representation of Individual Stereotypical Motion"
     authors: "Austin A. MBaye, Savik Kinger, Matthew S. Goodwin"
+    status: "Preprint"
     url: "https://arxiv.org/abs/2611.23646"
 resources:
    - name: "GitHub"
