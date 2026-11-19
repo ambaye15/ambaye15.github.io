@@ -7,16 +7,14 @@ date: 2026-11-17
 links:
   - name: "Paper"
     url: "https://arxiv.org/abs/2611.23646"
-  - name: "Code"
-    url: ""
 bibtex: |
   @misc{mbaye2026prism,
-      title={PRISM: Profiling and Representation of Individual Stereotypical Motion}, 
-      author={Austin A. MBaye and Savik Kinger and Matthew S. Goodwin},
-      year={2026},
-      eprint={2611.23646},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2611.23646}, 
-}
+    title = {{PRISM}: Profiling and Representation of Individual Stereotypical Motion},
+    author = {Austin A. MBaye and Savik Kinger and Matthew S. Goodwin},
+    year = {2026},
+    eprint = {2611.23646},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CV},
+    url = {https://arxiv.org/abs/2611.23646}
+  }
 ---
