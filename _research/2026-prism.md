@@ -7,6 +7,8 @@ date: 2026-11-17
 links:
   - name: "Paper"
     url: "https://arxiv.org/abs/2611.23646"
+  - code "Code"
+    url: "https://github.com/ambaye15/PRISM"
 bibtex: |
   @misc{mbaye2026prism,
     title = {{PRISM}: Profiling and Representation of Individual Stereotypical Motion},
