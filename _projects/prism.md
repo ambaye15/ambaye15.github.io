@@ -13,7 +13,7 @@ papers:
     url: "https://arxiv.org/abs/2611.23646"
 resources:
    - name: "GitHub"
-     url: ""
+     url: "https://github.com/ambaye15/PRISM"
 ---
 PRISM uses masked optical flow to characterize
 stereotypical motor movements from video. It measures four aspects of
